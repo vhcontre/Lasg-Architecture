@@ -1,0 +1,1 @@
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="Lasg.Hosts.Web.Global" Language="C#" %>
