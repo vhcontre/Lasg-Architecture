@@ -9,7 +9,7 @@ using System.ServiceModel;
 namespace Lasg.UI.Process
 {
 
-    public partial class EspecieProcessController
+    public partial class EspecieProcess : ProcessComponent
     {
         public List<Especie> ListarTodos()
         {
@@ -33,6 +33,7 @@ namespace Lasg.UI.Process
         {
             Especie result = default(Especie);
             var proxy = new EspecieService();
+            
 
             try
             {
@@ -44,6 +45,11 @@ namespace Lasg.UI.Process
             }
 
             return result;
+        }
+        public IList<Especie> SelectAll()
+        {
+            var response = HttpGet<Especie>("api/EspecieServicesHttp/Listar", new Dictionary<string, object>(), MediaType.Json);
+            return new List<Especie>();
         }
     }
 }

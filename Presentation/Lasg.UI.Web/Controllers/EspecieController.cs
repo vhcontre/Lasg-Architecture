@@ -12,7 +12,7 @@ namespace Lasg.UI.Web.Controllers
         // GET: Especie
         public ActionResult Index()
         {
-            var ctl = new EspecieProcessController();
+            var ctl = new EspecieProcess();
             var lista = ctl.ListarTodos();
             return View(lista);
         }
