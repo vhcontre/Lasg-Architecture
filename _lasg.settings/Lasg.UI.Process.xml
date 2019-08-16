@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfClassModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ClassModel ClassName="EspecieController" IsUpdated="false" GenerateXmlComments="true" UseDefaultComments="false" XmlComment="Especie controller component." ProductName="Lasg.UI.Process">
+    <NamespacesToImport>
+      <string>Lasg.Entities</string>
+      <string>Lasg.Services.Contracts</string>
+      <string>Lasg.UI.Process.EspecieService</string>
+      <string>System</string>
+      <string>System.Collections.Generic</string>
+      <string>System.Collections.ObjectModel</string>
+      <string>System.ServiceModel</string>
+    </NamespacesToImport>
+    <Methods>
+      <MethodModel ServiceName="EspecieService" Name="ListarTodos" OperationName="" FaultContractName="" ComponentName="IEspecieService" Signature="ListarTodos()" ReturnSignature="List&lt;Especie&gt;" CallSignature="ListarTodos()" IsUpdated="false" XmlComment="Calls the ListarTodos operation method in the EspecieService." />
+      <MethodModel ServiceName="EspecieService" Name="Agregar" OperationName="" FaultContractName="" ComponentName="IEspecieService" Signature="Agregar(Especie especie)" ReturnSignature="Especie" CallSignature="Agregar(especie)" IsUpdated="false" XmlComment="Calls the Agregar operation method in the EspecieService." />
+    </Methods>
+    <IsWorkflowService>false</IsWorkflowService>
+  </ClassModel>
+</ArrayOfClassModel>

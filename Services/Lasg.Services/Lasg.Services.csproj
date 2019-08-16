@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EspecieService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -51,6 +52,13 @@
       <Project>{D3ACD77E-374D-4E3D-9A0E-6C6D951D5D44}</Project>
       <Name>Lasg.Entities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Lasg.Services.Contracts\Lasg.Services.Contracts.csproj">
+      <Project>{2901fc06-fc05-4947-bfe7-7f1ff5296073}</Project>
+      <Name>Lasg.Services.Contracts</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

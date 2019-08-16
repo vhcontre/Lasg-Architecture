@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfClassModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ClassModel ClassName="Especie" IsUpdated="false" GenerateXmlComments="true" UseDefaultComments="false" XmlComment="Represents a row of Cita data." ProductName="Lasg.Entities" Parent="" OverrideToStringMethod="true" HasSerializableAttribute="true" NotifyPropertyChange="true" ToStringDelimiter="44">
+    <NamespacesToImport>
+      <string>System</string>
+      <string>System.Collections.Generic</string>
+      <string>System.Collections.ObjectModel</string>
+      <string>System.ComponentModel</string>
+      <string>System.Linq</string>
+      <string>System.Runtime.Serialization</string>
+    </NamespacesToImport>
+    <Columns>
+      <ColumnModel IsUpdated="false" Name="Id" PropertyName="Id" DisplayName="Id" TableName="Especie" Type="int" SetAsXmlAttribute="false" SetDisplayNameAttribute="true" IsBrowsable="false" MarkAsVirtual="true" IsNullable="false" IsList="false" IsObject="false" IsPrimaryKey="true" />
+      <ColumnModel IsUpdated="false" Name="Nombre" PropertyName="Nombre" DisplayName="Nombre" TableName="Especie" Type="string" SetAsXmlAttribute="false" SetDisplayNameAttribute="true" IsBrowsable="true" MarkAsVirtual="true" IsNullable="false" IsList="false" IsObject="false" IsPrimaryKey="false" />
+    </Columns>
+  </ClassModel>
+  <ClassModel ClassName="TipoServicio" IsUpdated="false" GenerateXmlComments="true" UseDefaultComments="true" XmlComment="Represents a row of TipoServicio data." ProductName="Lasg.Entities" Parent="" OverrideToStringMethod="true" HasSerializableAttribute="true" NotifyPropertyChange="true" ToStringDelimiter="44">
+    <NamespacesToImport>
+      <string>System</string>
+      <string>System.Collections.Generic</string>
+      <string>System.Collections.ObjectModel</string>
+      <string>System.ComponentModel</string>
+      <string>System.Linq</string>
+      <string>System.Runtime.Serialization</string>
+    </NamespacesToImport>
+    <Columns>
+      <ColumnModel IsUpdated="false" Name="Id" PropertyName="Id" DisplayName="Id" TableName="TipoServicio" Type="int" SetAsXmlAttribute="false" SetDisplayNameAttribute="false" IsBrowsable="false" MarkAsVirtual="false" IsNullable="false" IsList="false" IsObject="false" IsPrimaryKey="true" XmlComment="Gets or sets a int value for the Id column." />
+      <ColumnModel IsUpdated="false" Name="Nombre" PropertyName="Nombre" DisplayName="Nombre" TableName="TipoServicio" Type="string" SetAsXmlAttribute="false" SetDisplayNameAttribute="false" IsBrowsable="true" MarkAsVirtual="false" IsNullable="false" IsList="false" IsObject="false" IsPrimaryKey="false" XmlComment="Gets or sets a string value for the Nombre column." />
+    </Columns>
+  </ClassModel>
+</ArrayOfClassModel>

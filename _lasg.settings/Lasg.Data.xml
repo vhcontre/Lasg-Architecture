@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfClassModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ClassModel ClassName="EspecieDAC" IsUpdated="false" GenerateXmlComments="true" UseDefaultComments="false" XmlComment="Especie data access component. Manages CRUD operations for the Especie table." ProductName="Lasg.Data" Body="&#xD;&#xA;		/// &lt;summary&gt;&#xD;&#xA;		/// Inserts a new row in the Especie table.&#xD;&#xA;		/// &lt;/summary&gt;&#xD;&#xA;		/// &lt;param name=&quot;especie&quot;&gt;A Especie object.&lt;/param&gt;&#xD;&#xA;		/// &lt;returns&gt;An updated Especie object.&lt;/returns&gt;&#xD;&#xA;		public Especie Create(Especie especie)&#xD;&#xA;		{&#xD;&#xA;			const string SQL_STATEMENT = &#xD;&#xA;				&quot;INSERT INTO dbo.Especie ([Nombre]) &quot; +&#xD;&#xA;				&quot;VALUES(@Nombre); SELECT SCOPE_IDENTITY();&quot; ; &#xD;&#xA;&#xD;&#xA;			// Connect to database.&#xD;&#xA;			var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);&#xD;&#xA;			using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))&#xD;&#xA;			{&#xD;&#xA;				// Set parameter values.&#xD;&#xA;				db.AddInParameter(cmd, &quot;@Nombre&quot;, DbType.AnsiString, especie.Nombre);&#xD;&#xA;&#xD;&#xA;				// Get the primary key value.&#xD;&#xA;				especie.Id = Convert.ToInt32(db.ExecuteScalar(cmd));&#xD;&#xA;			}&#xD;&#xA;&#xD;&#xA;			return especie;&#xD;&#xA;		}&#xD;&#xA;&#xD;&#xA;		/// &lt;summary&gt;&#xD;&#xA;		/// Updates an existing row in the Especie table.&#xD;&#xA;		/// &lt;/summary&gt;&#xD;&#xA;		/// &lt;param name=&quot;especie&quot;&gt;A Especie entity object.&lt;/param&gt;&#xD;&#xA;		public void UpdateById(Especie especie)&#xD;&#xA;		{&#xD;&#xA;			const string SQL_STATEMENT = &#xD;&#xA;				&quot;UPDATE dbo.Especie &quot; +&#xD;&#xA;				&quot;SET &quot; +&#xD;&#xA;					&quot;[Nombre]=@Nombre &quot; +&#xD;&#xA;				&quot;WHERE [Id]=@Id &quot;;&#xD;&#xA;&#xD;&#xA;			// Connect to database.&#xD;&#xA;			var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);&#xD;&#xA;			using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))&#xD;&#xA;			{&#xD;&#xA;				// Set parameter values.&#xD;&#xA;				db.AddInParameter(cmd, &quot;@Nombre&quot;, DbType.AnsiString, especie.Nombre);&#xD;&#xA;				db.AddInParameter(cmd, &quot;@Id&quot;, DbType.Int32, especie.Id);&#xD;&#xA;&#xD;&#xA;				db.ExecuteNonQuery(cmd);&#xD;&#xA;			}&#xD;&#xA;		}&#xD;&#xA;&#xD;&#xA;		/// &lt;summary&gt;&#xD;&#xA;		/// Conditionally deletes one or more rows in the Especie table.&#xD;&#xA;		/// &lt;/summary&gt;&#xD;&#xA;		/// &lt;param name=&quot;id&quot;&gt;A id value.&lt;/param&gt;&#xD;&#xA;		public void DeleteById(int id)&#xD;&#xA;		{&#xD;&#xA;			const string SQL_STATEMENT = &quot;DELETE dbo.Especie &quot; +&#xD;&#xA;										 &quot;WHERE [Id]=@Id &quot;;&#xD;&#xA;&#xD;&#xA;			// Connect to database.&#xD;&#xA;			var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);&#xD;&#xA;			using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))&#xD;&#xA;			{&#xD;&#xA;				// Set parameter values.&#xD;&#xA;				db.AddInParameter(cmd, &quot;@Id&quot;, DbType.Int32, id);&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;				db.ExecuteNonQuery(cmd);&#xD;&#xA;			}&#xD;&#xA;		}&#xD;&#xA;&#xD;&#xA;		/// &lt;summary&gt;&#xD;&#xA;		/// Returns a row from the Especie table.&#xD;&#xA;		/// &lt;/summary&gt;&#xD;&#xA;		/// &lt;param name=&quot;id&quot;&gt;A Id value.&lt;/param&gt;&#xD;&#xA;		/// &lt;returns&gt;A Especie object with data populated from the database.&lt;/returns&gt;&#xD;&#xA;		public Especie SelectById(int id)&#xD;&#xA;		{&#xD;&#xA;			const string SQL_STATEMENT = &#xD;&#xA;				&quot;SELECT [Id], [Nombre] &quot; +&#xD;&#xA;				&quot;FROM dbo.Especie  &quot;  +&#xD;&#xA;				&quot;WHERE [Id]=@Id &quot;;&#xD;&#xA;&#xD;&#xA;			Especie especie = null;&#xD;&#xA;&#xD;&#xA;			// Connect to database.&#xD;&#xA;			var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);&#xD;&#xA;			using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))&#xD;&#xA;			{&#xD;&#xA;				db.AddInParameter(cmd, &quot;@Id&quot;, DbType.Int32, id);&#xD;&#xA;&#xD;&#xA;				using (IDataReader dr = db.ExecuteReader(cmd))&#xD;&#xA;				{&#xD;&#xA;					if (dr.Read())&#xD;&#xA;					{&#xD;&#xA;						// Create a new Especie&#xD;&#xA;						especie = LoadEspecie(dr);&#xD;&#xA;					}&#xD;&#xA;				}&#xD;&#xA;			}&#xD;&#xA;&#xD;&#xA;			return especie;&#xD;&#xA;		}&#xD;&#xA;&#xD;&#xA;		/// &lt;summary&gt;&#xD;&#xA;		/// Conditionally retrieves one or more rows from the Especie table.&#xD;&#xA;		/// &lt;/summary&gt;&#xD;&#xA;		/// &lt;returns&gt;A collection of Especie objects.&lt;/returns&gt;		&#xD;&#xA;		public List&lt;Especie&gt; Select()&#xD;&#xA;		{&#xD;&#xA;			// WARNING! The following SQL query does not contain a WHERE condition.&#xD;&#xA;			// You are advised to include a WHERE condition to prevent any performance&#xD;&#xA;			// issues when querying large resultsets.&#xD;&#xA;			const string SQL_STATEMENT = &#xD;&#xA;				&quot;SELECT [Id], [Nombre] &quot; +&#xD;&#xA;				&quot;FROM dbo.Especie &quot;;&#xD;&#xA;&#xD;&#xA;			List&lt;Especie&gt; result = new List&lt;Especie&gt;();&#xD;&#xA;&#xD;&#xA;			// Connect to database.&#xD;&#xA;			var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);&#xD;&#xA;			using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))&#xD;&#xA;			{ &#xD;&#xA;				using (IDataReader dr = db.ExecuteReader(cmd))&#xD;&#xA;				{&#xD;&#xA;					while (dr.Read())&#xD;&#xA;					{&#xD;&#xA;						// Create a new Especie&#xD;&#xA;						Especie especie = LoadEspecie(dr);&#xD;&#xA;&#xD;&#xA;						// Add to List.&#xD;&#xA;						result.Add(especie);&#xD;&#xA;					}&#xD;&#xA;				}&#xD;&#xA;			}&#xD;&#xA;&#xD;&#xA;			return result;&#xD;&#xA;		}&#xD;&#xA;&#xD;&#xA;		/// &lt;summary&gt;&#xD;&#xA;		/// Creates a new Especie from a Datareader.&#xD;&#xA;		/// &lt;/summary&gt;&#xD;&#xA;		/// &lt;param name=&quot;dr&quot;&gt;A DataReader object.&lt;/param&gt;&#xD;&#xA;		/// &lt;returns&gt;Returns a Especie.&lt;/returns&gt;		&#xD;&#xA;		private Especie LoadEspecie(IDataReader dr)&#xD;&#xA;        {&#xD;&#xA;            // Create a new Especie&#xD;&#xA;            Especie especie = new Especie();&#xD;&#xA;&#xD;&#xA;            // Read values.&#xD;&#xA;			especie.Id = GetDataValue&lt;int&gt;(dr, &quot;Id&quot;);&#xD;&#xA;			especie.Nombre = GetDataValue&lt;string&gt;(dr, &quot;Nombre&quot;);&#xD;&#xA;&#xD;&#xA;            return especie;&#xD;&#xA;        }&#xD;&#xA;">
+    <NamespacesToImport />
+    <Methods>
+      <MethodModel Name="Create" EntityName="Especie" TableName="Especie" SchemaName="dbo" TableAlias="A" Type="Insert" IsUpdated="false" XmlComment="Inserts a new row in the Especie table." GenerateXmlComments="true" UseDefaultComments="true" UseLoadMethod="true" GenerateLoadMethod="true" LoadMethod="LoadEspecie">
+        <RelatedTables />
+        <Columns>
+          <ColumnModel Name="Id" TableName="Especie" PropertyName="Id" DataType="int" DbType="Int32" IsPrimaryKey="true" IsIdentity="true" IsNullable="false" IsOutput="false" />
+          <ColumnModel Name="Nombre" TableName="Especie" PropertyName="Nombre" DataType="string" DbType="AnsiString" IsPrimaryKey="false" IsIdentity="false" IsNullable="false" IsOutput="false" />
+        </Columns>
+        <FilterColumns />
+        <OrderByColumns />
+      </MethodModel>
+      <MethodModel Name="UpdateById" EntityName="Especie" TableName="Especie" SchemaName="dbo" TableAlias="A" Type="UpdateObject" IsUpdated="false" XmlComment="Updates an existing row in the Especie table." GenerateXmlComments="true" UseDefaultComments="true" UseLoadMethod="true" GenerateLoadMethod="true" LoadMethod="LoadEspecie">
+        <RelatedTables />
+        <Columns>
+          <ColumnModel Name="Id" TableName="Especie" PropertyName="Id" DataType="int" DbType="Int32" IsPrimaryKey="true" IsIdentity="true" IsNullable="false" IsOutput="false" />
+          <ColumnModel Name="Nombre" TableName="Especie" PropertyName="Nombre" DataType="string" DbType="AnsiString" IsPrimaryKey="false" IsIdentity="false" IsNullable="false" IsOutput="false" />
+        </Columns>
+        <FilterColumns>
+          <FilterColumnModel Name="Id" TableName="Especie" PropertyName="Id" DataType="int" DbType="Int32" IsPrimaryKey="true" IsIdentity="true" IsNullable="false" IsOutput="false" OpenParenthesis="false" ConditionalOperator="None" Operator="Equals" CloseParenthesis="false" IsOptional="false" />
+        </FilterColumns>
+        <OrderByColumns />
+      </MethodModel>
+      <MethodModel Name="DeleteById" EntityName="Especie" TableName="Especie" SchemaName="dbo" TableAlias="A" Type="Delete" IsUpdated="false" XmlComment="Conditionally deletes one or more rows in the Especie table." GenerateXmlComments="true" UseDefaultComments="true" UseLoadMethod="true" GenerateLoadMethod="true" LoadMethod="LoadEspecie">
+        <RelatedTables />
+        <Columns />
+        <FilterColumns>
+          <FilterColumnModel Name="Id" TableName="Especie" PropertyName="Id" DataType="int" DbType="Int32" IsPrimaryKey="true" IsIdentity="true" IsNullable="false" IsOutput="false" OpenParenthesis="false" ConditionalOperator="None" Operator="Equals" CloseParenthesis="false" IsOptional="false" />
+        </FilterColumns>
+        <OrderByColumns />
+      </MethodModel>
+      <MethodModel Name="SelectById" EntityName="Especie" TableName="Especie" SchemaName="dbo" TableAlias="A" Type="SelectObject" IsUpdated="false" XmlComment="Returns a row from the Especie table." GenerateXmlComments="true" UseDefaultComments="true" UseLoadMethod="true" GenerateLoadMethod="false" LoadMethod="LoadEspecie">
+        <RelatedTables />
+        <Columns>
+          <ColumnModel Name="Id" TableName="Especie" PropertyName="Id" DataType="int" DbType="Int32" IsPrimaryKey="true" IsIdentity="true" IsNullable="false" IsOutput="false" />
+          <ColumnModel Name="Nombre" TableName="Especie" PropertyName="Nombre" DataType="string" DbType="AnsiString" IsPrimaryKey="false" IsIdentity="false" IsNullable="false" IsOutput="false" />
+        </Columns>
+        <FilterColumns>
+          <FilterColumnModel Name="Id" TableName="Especie" PropertyName="Id" DataType="int" DbType="Int32" IsPrimaryKey="true" IsIdentity="true" IsNullable="false" IsOutput="false" OpenParenthesis="false" ConditionalOperator="None" Operator="Equals" CloseParenthesis="false" IsOptional="false" />
+        </FilterColumns>
+        <OrderByColumns />
+      </MethodModel>
+      <MethodModel Name="Select" EntityName="Especie" TableName="Especie" SchemaName="dbo" TableAlias="A" Type="Select" IsUpdated="false" XmlComment="Conditionally retrieves one or more rows from the Especie table." GenerateXmlComments="true" UseDefaultComments="true" UseLoadMethod="true" GenerateLoadMethod="true" LoadMethod="LoadEspecie">
+        <RelatedTables />
+        <Columns>
+          <ColumnModel Name="Id" TableName="Especie" PropertyName="Id" DataType="int" DbType="Int32" IsPrimaryKey="true" IsIdentity="true" IsNullable="false" IsOutput="false" />
+          <ColumnModel Name="Nombre" TableName="Especie" PropertyName="Nombre" DataType="string" DbType="AnsiString" IsPrimaryKey="false" IsIdentity="false" IsNullable="false" IsOutput="false" />
+        </Columns>
+        <FilterColumns />
+        <OrderByColumns />
+      </MethodModel>
+    </Methods>
+  </ClassModel>
+</ArrayOfClassModel>

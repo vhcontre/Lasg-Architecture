@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfClassModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ClassModel ClassName="EspecieService" IsUpdated="false" GenerateXmlComments="true" UseDefaultComments="false" XmlComment="Especie service component." ProductName="Lasg.Services" ServiceNamespace="" FaultContractName="Fault" GenerateHandler="false" InstanceContextMode="PerCall" ConcurrencyMode="Multiple" HasHttpsEndpoint="false">
+    <NamespacesToImport>
+      <string>System</string>
+      <string>System.Collections.Generic</string>
+      <string>System.Collections.ObjectModel</string>
+      <string>System.ServiceModel</string>
+      <string>Lasg.Business</string>
+      <string>Lasg.Entities</string>
+    </NamespacesToImport>
+    <Methods>
+      <MethodModel Name="Agregar" ComponentName="EspecieComponent" Signature="Agregar(Especie especie)" ReturnSignature="Especie" CallSignature="Agregar(especie)" HandlesException="false" HasFaultContract="false" IsRest="false" RestRequestFormat="Xml" RestResponseFormat="Xml" RestBodyStyle="Bare" IsUpdated="false" XmlComment="Calls the Agregar business method of the EspecieComponent.">
+        <Namespaces>
+          <string>Lasg.Entities</string>
+          <string>Lasg.Business</string>
+        </Namespaces>
+      </MethodModel>
+      <MethodModel Name="ListarTodos" ComponentName="EspecieComponent" Signature="ListarTodos()" ReturnSignature="List&lt;Especie&gt;" CallSignature="ListarTodos()" HandlesException="false" HasFaultContract="false" IsRest="false" RestRequestFormat="Xml" RestResponseFormat="Xml" RestBodyStyle="Bare" IsUpdated="false" XmlComment="Calls the ListarTodos business method of the EspecieComponent.">
+        <Namespaces>
+          <string>Lasg.Entities</string>
+          <string>Lasg.Business</string>
+        </Namespaces>
+      </MethodModel>
+    </Methods>
+    <EndPoints>
+      <EndpointModel Name="basicHttpEspecieService" Address="http://localhost:9090/EspecieService" Binding="basicHttpBinding" IsUpdated="false" IsHttps="false" />
+    </EndPoints>
+  </ClassModel>
+</ArrayOfClassModel>

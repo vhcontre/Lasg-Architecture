@@ -15,13 +15,13 @@ namespace Lasg.UI.Web.Controllers
             return this.View(HomeControllerAction.Index);
         }
 
-        [Route("about", Name = HomeControllerRoute.GetAbout)]
+        [Route("acerca-de-nosotros", Name = HomeControllerRoute.GetAbout)]
         public ActionResult About()
         {
             return this.View(HomeControllerAction.About);
         }
 
-        [Route("contact", Name = HomeControllerRoute.GetContact)]
+        [Route("contacto", Name = HomeControllerRoute.GetContact)]
         public ActionResult Contact()
         {
             return this.View(HomeControllerAction.Contact);
