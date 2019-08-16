@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lasg.UI.Process", "Presenta
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lasg.UI.Web", "Presentation\Lasg.UI.Web\Lasg.UI.Web.csproj", "{800D9E27-7A0E-4B17-AFBE-C75B835AD2F7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lasg.Services.Contracts", "Services\Lasg.Services.Contracts\Lasg.Services.Contracts.csproj", "{2901FC06-FC05-4947-BFE7-7F1FF5296073}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{800D9E27-7A0E-4B17-AFBE-C75B835AD2F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{800D9E27-7A0E-4B17-AFBE-C75B835AD2F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{800D9E27-7A0E-4B17-AFBE-C75B835AD2F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2901FC06-FC05-4947-BFE7-7F1FF5296073}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2901FC06-FC05-4947-BFE7-7F1FF5296073}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2901FC06-FC05-4947-BFE7-7F1FF5296073}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2901FC06-FC05-4947-BFE7-7F1FF5296073}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -89,5 +95,6 @@ Global
 		{379D0385-2E09-4AE1-8042-9DD6141C743E} = {41E09B30-CE09-4E6B-9CA6-9EE89F3AB7F4}
 		{4E119C54-6CD1-423F-B8D7-B507E5C21BEE} = {F36AA19F-759B-48D5-AD02-ECC3993D5D3D}
 		{800D9E27-7A0E-4B17-AFBE-C75B835AD2F7} = {F36AA19F-759B-48D5-AD02-ECC3993D5D3D}
+		{2901FC06-FC05-4947-BFE7-7F1FF5296073} = {07F5B176-5770-4F23-80B1-6F65177B8F6E}
 	EndGlobalSection
 EndGlobal
